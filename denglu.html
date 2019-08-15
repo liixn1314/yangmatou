@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/mine.css" />
+		<link rel="stylesheet" href="css/demo1.css" />
+	
+	</head>
+	<body>
+		<div class="head">
+			<div class="main">
+				<div class="head-left"><img src="img/logo1.png" /></div>
+				<div class="head-right">
+					<ul>
+						<li><a href="">请登录</a></li>
+						<li >
+							<a id="item" href="">快速注册</a>
+							<!--<div class="item-1">
+								<a href="" >买家注册</a>
+								<a href="" >卖家注册认证</a>
+							</div>-->
+						</li>
+						<li>
+							<a id="item" href="">我的码头</i></a>
+							<!--<div class="item-2">
+							<a href="">我的订单</a>
+							<a href="">我的优惠券</a>
+							</div>-->
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<div><img style="margin-top: 30px; float: left;" src="img/da1.jpg" /></div>			
+		
+		<div class="input_div">
+                <ul>
+                    <li class="gary_f1">
+                        <b>洋码头帐户登录</b>
+                        <div class="line"></div>
+                        <a href="/login/register">免费注册</a>                       
+                    </li>
+                    <li>
+                    	<div class="gary_f2">
+                    		<div class="gary_f3">
+                    			<span style="padding-right: 5px;">手机/邮箱  :</span><input id="name"  type="text" placeholder=" 请输入手机/邮箱/用户名"/>
+                    		</div>
+                    		<div class="gary_f4">
+                    			<span style="padding-right: 5px;">密码  :</span><input id="password" type="password" placeholder=" 请输入密码"/>
+                    		</div>
+                    		<div class="gary_f5">
+                    			<span style="padding-right: 5px; float: left;">验证码  :</span><input style="float: left;"  type="password" placeholder=" 验证码"/>
+                    			<img style="float: left; padding-left: 5px" id="ConfirmImage" src="//www.ymatou.com/Login/GetImgCode?guid=a6035468-6ae0-4df2-9459-53af9da4a537" >
+                    			<span style="line-height:28px ;">看不清？</span><a href="" style="color: blue">换张图</a>
+                    		</div>
+                    		<div class="gary_f6"> 
+                    			<ul>
+                    				<li>
+                    					<input type="checkbox"  value="true"><i style="padding-left: 5px; color: #666; font-size: 12px;">两周内自动登录</i>
+                    				</li>                    				
+                    			</ul>                 				                   			
+                    		</div>
+                    		<div class="gary_f7">
+                    			<ul>
+                    				<li class="gary_f7_1" id="denglu"><a id="weq">登录</a></li>
+                    				<li><a href="">忘记密码</a></li>
+                    			</ul>	
+                    		</div>
+                    		<div style="width: 280px; height: 2px; margin: 0 auto 15px; border-top: 1px solid #efefef;"></div>
+                    		<ul class="gary_f8">
+                                    <li><a class="sina_login" href=""><i><img style="width: 20px; height: 20px; " src="img/12.gif"/></i>微博登录</a></li>
+                                    <li><div class="line" style="margin: 8px 8px;"></div></li>
+                                    <li style="margin-right: 10px;"><a href=""><i><img style="width: 20px; height: 20px; " src="img/day21.jpg"/></i>支付宝帐户登录</a></li>                                   
+                                    <li>
+                                        <a href=""><i><img style="width: 20px; height: 20px;" src="img/day20.jpg"/></i>微信登录</a>
+                                    </li>
+                                </ul>
+                    	</div>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            
+        </div>
+        <div class="copywrite" style="margin-top: 10px;">
+		    © 2009－2018 ymatou.com, All rights reserved 增值电信业务经营许可证：沪B2-20140021 <font color="white">41 </font>
+		    <br>上海洋码头网络技术有限公司  版权所有
+		    <br>上海市静安区江场三路93号13层
+		</div>
+		<script>
+			
+			var dlu=document.getElementById('denglu');
+			var weq=document.getElementById('weq');
+			dlu.onclick=function(){
+				
+				var nme=document.getElementById('name');
+				var password=document.getElementById('password');
+				var xhr=new XMLHttpRequest();
+				xhr.open('get','php/new.json');
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				//status==200  readyState=4
+				if (xhr.readyState==4&&xhr.status==200) {
+					var result = JSON.parse(xhr.responseText);//字符串格式,要转成json格式
+					//判断data的值
+					
+					if(nme.value=="zhangsan" && password.value==123){
+						//用户名已经存在							
+					weq.href="yanghuoji.html";
+						}
+					}
+				}
+			}
+		</script>
+
+	</body>
+</html>
